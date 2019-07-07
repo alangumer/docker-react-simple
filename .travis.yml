@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t alangumer/docker-react-simple -f Dockerfile.dev .
+
+script:
+  - docker run alangumer/docker-react-simple npm run test -- --coverage
